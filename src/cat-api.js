@@ -17,3 +17,18 @@ export const fetchBreeds = async () => {
     );
   }
 };
+
+const catApiUrl = 'https://api.thecatapi.com/v1/images/search';
+
+export const fetchCatByBreed = async breedId => {
+  try {
+    const response = await axios.get(`${catApiUrl}?breed_ids=${breedId}`);
+    if (response.data.length === 0) throw new Error();
+    return response.data[0];
+  } catch (error) {
+    Notiflix.Notify.failure(
+      'Oops! Something went wrong! Try reloading the page!'
+    );
+    return Promise.reject(error);
+  }
+};
