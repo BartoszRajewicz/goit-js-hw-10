@@ -6,6 +6,8 @@ import Notiflix from 'notiflix';
 document.addEventListener('DOMContentLoaded', async () => {
   const breedSelect = document.querySelector('.breed-select');
   const catInfoContainer = document.querySelector('.cat-info');
+  const loader = document.querySelector('.loader');
+  const errorContainer = document.querySelector('.error');
 
   try {
     const breeds = await fetchBreeds();
