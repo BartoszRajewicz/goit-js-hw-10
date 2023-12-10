@@ -31,3 +31,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error(error);
   }
 });
+
+function displayCatInfo(catInfo, container) {
+    const { breeds, url } = catInfo
+    const breed = breeds[0];
+
+    
+}
