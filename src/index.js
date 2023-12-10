@@ -49,7 +49,10 @@ function displayCatInfo(catInfo, container) {
   desc.textContent = breed.description;
 
   const temper = document.createElement('p');
-  temper.textContent = breed.temperament;
+  const strong = document.createElement('strong');
+  strong.textContent = 'Temperament: ';
+  temper.appendChild(strong);
+  temper.innerHTML += breed.temperament;
 
   container.appendChild(img);
   container.appendChild(name);
