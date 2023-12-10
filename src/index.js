@@ -33,8 +33,26 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 function displayCatInfo(catInfo, container) {
-    const { breeds, url } = catInfo
-    const breed = breeds[0];
+  const { breeds, url } = catInfo;
+  const breed = breeds[0];
 
-    
+  container.innerHTML = '';
+
+  const img = document.createElement('img');
+  img.src = url;
+  img.alt = breed.name;
+
+  const name = document.createElement('h2');
+  name.textContent = breed.name;
+
+  const desc = document.createElement('p');
+  desc.textContent = breed.description;
+
+  const temper = document.createElement('p');
+  temper.textContent = breed.temperament;
+
+  container.appendChild(img);
+  container.appendChild(name);
+  container.appendChild(desc);
+  container.appendChild(temper);
 }
