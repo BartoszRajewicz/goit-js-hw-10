@@ -9,7 +9,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   const loader = document.querySelector('.loader');
   const errorContainer = document.querySelector('.error');
 
+  loader.style.display = 'none';
+  errorContainer.style.display = 'none';
+
   try {
+    loader.style.display = 'block';
     const breeds = await fetchBreeds();
     breeds.forEach(breed => {
       const option = document.createElement('option');
@@ -20,6 +24,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     breedSelect.addEventListener('change', async event => {
       const selectedBreedId = event.target.value;
+      loader.style.display = 'block';
+      errorContainer.style.display = 'none';
+      catInfoContainer.style.display = 'none';
 
       try {
         const catInfo = await fetchCatByBreed(selectedBreedId);
@@ -27,6 +34,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         displayCatInfo(catInfo, catInfoContainer);
       } catch (error) {
         console.error(error);
+        Notiflix.Notify.failure(
+          'Oops! Something went wrong! Try reloading the page!'
+        );
+        errorContainer.style.display = 'block';
+      } finally {
+        loader.style.display = 'none';
       }
     });
   } catch (error) {
