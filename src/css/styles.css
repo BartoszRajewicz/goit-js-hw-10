@@ -6,13 +6,39 @@
   display: block !important;
 }
 
+.cat-info img {
+  margin-top: 30px;
+  width: 400px;
+  height: 300px;
+}
+
+.cat-info {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.cat-info .text-container {
+  margin-left: 20px;
+}
+
+.cat-info h2 {
+  margin-bottom: 10px;
+}
+
+.cat-info .description {
+  margin-bottom: 10px;
+}
+
 .loader {
   display: none;
   width: 48px;
   height: 48px;
   border: 3px solid #fff;
   border-radius: 50%;
-  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
