@@ -3,7 +3,7 @@
 }
 
 .visible {
-  display: block !important;
+  display: flex !important;
 }
 
 .cat-info {
@@ -30,18 +30,10 @@
   margin-bottom: 10px;
 }
 
-.cat-info .text-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.cat-info .description {
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
+.cat-info .description,
 .cat-info .temperament {
-  flex-wrap: wrap;
+  margin-top: 20px; /* Dodanie odstępu między h2 a description oraz temperament */
+  word-wrap: break-word; /* Tekst będzie się ładnie zawijać */
 }
 
 .loader {
