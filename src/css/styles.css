@@ -23,7 +23,6 @@
   display: flex;
   flex-direction: column;
   max-width: 600px;
-  margin: 0;
 }
 
 .cat-info h2 {
@@ -31,9 +30,14 @@
   margin-bottom: 10px;
 }
 
+.cat-info .text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .cat-info .description {
   flex-wrap: wrap;
-  margin-bottom: 10px; /* dodane, aby odseparować description od temperament */
+  margin-bottom: 10px;
 }
 
 .cat-info .temperament {
