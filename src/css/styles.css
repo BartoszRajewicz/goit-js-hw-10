@@ -8,7 +8,7 @@
 
 .cat-info {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   margin-top: 30px;
 }
 
@@ -16,24 +16,16 @@
   display: block;
   width: 400px;
   height: auto;
-  margin-right: 20px;
-}
-
-.cat-info .text-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
 }
 
 .cat-info h2 {
-  margin-top: 0;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
 .cat-info .description,
 .cat-info .temperament {
-  margin-top: 20px; /* Dodanie odstępu między h2 a description oraz temperament */
-  word-wrap: break-word; /* Tekst będzie się ładnie zawijać */
+  margin-top: 10px;
 }
 
 .loader {

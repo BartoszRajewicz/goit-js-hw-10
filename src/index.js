@@ -69,9 +69,7 @@ function displayCatInfo(catInfo, container) {
   desc.textContent = breed.description;
 
   const temper = document.createElement('p');
-  temper.textContent = `Temperament: ${
-    breed.temperament || 'No temperament information available.'
-  }`;
+  temper.textContent = `Temperament: ${breed.temperament}`;
 
   container.appendChild(img);
   container.appendChild(name);
