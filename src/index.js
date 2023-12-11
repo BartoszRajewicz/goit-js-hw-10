@@ -9,11 +9,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   const loader = document.querySelector('.loader');
   const errorContainer = document.querySelector('.error');
 
-  loader.style.display = 'none';
-  errorContainer.style.display = 'none';
-
   try {
-    loader.style.display = 'block';
+    loader.classList.add('visible'); 
     const breeds = await fetchBreeds();
     breeds.forEach(breed => {
       const option = document.createElement('option');
@@ -23,10 +20,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     breedSelect.addEventListener('change', async event => {
+      loader.classList.add('visible'); 
+      errorContainer.classList.remove('visible'); 
+
       const selectedBreedId = event.target.value;
-      loader.style.display = 'block';
-      errorContainer.style.display = 'none';
-      catInfoContainer.style.display = 'none';
 
       try {
         const catInfo = await fetchCatByBreed(selectedBreedId);
@@ -37,40 +34,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         Notiflix.Notify.failure(
           'Oops! Something went wrong! Try reloading the page!'
         );
-        errorContainer.style.display = 'block';
+        errorContainer.classList.add('visible'); 
       } finally {
-        loader.style.display = 'none';
+        loader.classList.remove('visible'); 
       }
     });
   } catch (error) {
     console.error(error);
+    errorContainer.classList.add('visible'); // Wyświetl komunikat o błędzie
+  } finally {
+    loader.classList.remove('visible'); // Ukryj loader po zakończeniu żądania
   }
 });
-
-function displayCatInfo(catInfo, container) {
-  const { breeds, url } = catInfo;
-  const breed = breeds[0];
-
-  container.innerHTML = '';
-
-  const img = document.createElement('img');
-  img.src = url;
-  img.alt = breed.name;
-
-  const name = document.createElement('h2');
-  name.textContent = breed.name;
-
-  const desc = document.createElement('p');
-  desc.textContent = breed.description;
-
-  const temper = document.createElement('p');
-  const strong = document.createElement('strong');
-  strong.textContent = 'Temperament: ';
-  temper.appendChild(strong);
-  temper.innerHTML += breed.temperament;
-
-  container.appendChild(img);
-  container.appendChild(name);
-  container.appendChild(desc);
-  container.appendChild(temper);
-}
