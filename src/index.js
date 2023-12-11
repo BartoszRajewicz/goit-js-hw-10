@@ -20,8 +20,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       breedSelect.appendChild(option);
     });
 
-    loader.classList.remove('visible');
-
     breedSelect.addEventListener('change', async event => {
       loader.classList.add('visible');
       errorContainer.classList.remove('visible');
@@ -41,6 +39,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         loader.classList.remove('visible');
       }
     });
+
+    loader.classList.remove('visible');
   } catch (error) {
     console.error(error);
     errorContainer.classList.add('visible');
