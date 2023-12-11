@@ -12,22 +12,18 @@
   margin-top: 30px;
 }
 
-.cat-info {
-  display: flex;
-  align-items: flex-start;
-  margin-top: 30px;
-}
-
 .cat-info img {
+  display: block;
   width: 400px;
-  height: 300px;
+  height: auto;
   margin-right: 20px;
 }
 
 .cat-info .text-container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  max-width: 600px;
+  margin: 0;
 }
 
 .cat-info h2 {
@@ -36,12 +32,12 @@
 }
 
 .cat-info .description {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px; /* dodane, aby odseparować description od temperament */
 }
 
 .cat-info .temperament {
-  margin-top: 20px;
+  flex-wrap: wrap;
 }
 
 .loader {
@@ -56,6 +52,7 @@
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
+
 .loader::after {
   content: '';
   box-sizing: border-box;
