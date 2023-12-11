@@ -58,10 +58,14 @@ function displayCatInfo(catInfo, container) {
   img.src = url;
   img.alt = breed.name;
 
+  const textContainer = document.createElement('div');
+  textContainer.classList.add('text-container');
+
   const name = document.createElement('h2');
   name.textContent = breed.name;
 
   const desc = document.createElement('p');
+  desc.classList.add('description');
   desc.textContent = breed.description;
 
   const temper = document.createElement('p');
